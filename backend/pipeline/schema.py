@@ -6,9 +6,7 @@ def generate_schema(design):
 
     db_tables = {}
 
-    # -------------------------
     # Special Plural Mapping
-    # -------------------------
 
     plural_map = {
 
@@ -31,9 +29,7 @@ def generate_schema(design):
         "subscription": "subscriptions"
     }
 
-    # -------------------------
     # UI Generation
-    # -------------------------
 
     for page in design["pages"]:
 
@@ -76,9 +72,7 @@ def generate_schema(design):
                 ]
             })
 
-    # -------------------------
     # Database + API Generation
-    # -------------------------
 
     for entity in design["entities"]:
 
@@ -148,9 +142,7 @@ def generate_schema(design):
             "method": "GET"
         }
 
-    # -------------------------
     # Login API
-    # -------------------------
 
     if "Login" in design["pages"]:
 
@@ -159,9 +151,7 @@ def generate_schema(design):
             "method": "POST"
         }
 
-    # -------------------------
     # Roles
-    # -------------------------
 
     auth = {}
 
@@ -194,9 +184,7 @@ def generate_schema(design):
                 "read"
             ]
 
-    # -------------------------
     # Final Schema
-    # -------------------------
 
     return {
 
