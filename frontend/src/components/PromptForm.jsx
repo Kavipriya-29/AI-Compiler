@@ -1,56 +1,43 @@
 import { useState } from "react";
 
 function PromptForm({ setResponse }) {
-
-  const [prompt, setPrompt] =
-    useState("");
+  const [prompt, setPrompt] = useState("");
 
   async function generate() {
-
-    const res =
-      await fetch(
-        "http://127.0.0.1:8000/generate",
+    try {
+      const res = await fetch(
+        "https://ai-compiler-81so.onrender.com/generate",
         {
-          method:"POST",
-
-          headers:{
-            "Content-Type":
-            "application/json"
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
           },
-
-          body:JSON.stringify({
-            prompt
-          })
+          body: JSON.stringify({
+            prompt,
+          }),
         }
       );
 
-    const data =
-      await res.json();
-
-    setResponse(data);
+      const data = await res.json();
+      setResponse(data);
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Failed to connect to backend");
+    }
   }
 
   return (
-
     <div className="card">
-
       <textarea
         rows="8"
         value={prompt}
         placeholder="Enter requirements..."
-        onChange={(e)=>
-          setPrompt(
-            e.target.value
-          )
-        }
+        onChange={(e) => setPrompt(e.target.value)}
       />
 
-      <button
-        onClick={generate}
-      >
+      <button onClick={generate}>
         Generate
       </button>
-
     </div>
   );
 }
