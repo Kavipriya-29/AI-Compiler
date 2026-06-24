@@ -1,0 +1,26 @@
+{
+  "real_prompts": [
+    "Build CRM with login and contacts",
+    "Build LMS with students and teachers",
+    "Build E-commerce with payments",
+    "Build HR Portal",
+    "Build Hospital Management System",
+    "Build Inventory Tracking System",
+    "Build Event Management App",
+    "Build Banking Dashboard",
+    "Build School ERP",
+    "Build Ticket Booking Platform"
+  ],
+  "edge_cases": [
+    "Build something",
+    "Create an app",
+    "I need a dashboard",
+    "Make CRM but without users",
+    "Login without authentication",
+    "Admin and no admin simultaneously",
+    "Need payments but no payment gateway",
+    "Build system quickly",
+    "Everything should be editable and locked",
+    "Unknown requirements"
+  ]
+}
