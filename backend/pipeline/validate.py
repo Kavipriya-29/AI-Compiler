@@ -2,9 +2,7 @@ def validate_schema(schema):
 
     errors = []
 
-    # -------------------------
     # Required Sections
-    # -------------------------
 
     required = [
         "ui",
@@ -25,9 +23,7 @@ def validate_schema(schema):
 
         return errors
 
-    # -------------------------
     # Load Objects
-    # -------------------------
 
     tables = schema["database"].get(
         "tables",
@@ -52,9 +48,7 @@ def validate_schema(schema):
         {}
     )
 
-    # -------------------------
     # API -> DB Validation
-    # -------------------------
 
     for endpoint in apis:
 
@@ -70,9 +64,7 @@ def validate_schema(schema):
                 f"{entity} api without matching table"
             )
 
-    # -------------------------
     # DB -> API Validation
-    # -------------------------
 
     for table in tables:
 
@@ -84,9 +76,7 @@ def validate_schema(schema):
                 f"{table} table without api"
             )
 
-    # -------------------------
     # Page Validation
-    # -------------------------
 
     if len(pages) == 0:
 
@@ -133,9 +123,7 @@ def validate_schema(schema):
                 f"{page_name} page has no components"
             )
 
-    # -------------------------
     # Database Validation
-    # -------------------------
 
     if len(tables) == 0:
 
@@ -157,9 +145,7 @@ def validate_schema(schema):
                 f"{table_name} table missing primary key"
             )
 
-    # -------------------------
     # API Validation
-    # -------------------------
 
     if len(apis) == 0:
 
@@ -175,9 +161,7 @@ def validate_schema(schema):
                 f"{endpoint} missing method"
             )
 
-    # -------------------------
     # Auth Validation
-    # -------------------------
 
     if len(auth) == 0:
 
@@ -193,9 +177,7 @@ def validate_schema(schema):
                 f"{role} role has no permissions"
             )
 
-    # -------------------------
     # Login Validation
-    # -------------------------
 
     login_exists = False
 
