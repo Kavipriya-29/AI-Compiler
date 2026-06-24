@@ -49,41 +49,34 @@ def generate(req: PromptRequest):
 
     try:
 
-        # -------------------------
         # STEP 1 - Intent Extraction
-        # -------------------------
 
         intent = extract_intent(
             req.prompt
         )
 
-        # -------------------------
         # STEP 2 - System Design
-        # -------------------------
+        
 
         design = system_design(
             intent
         )
 
-        # -------------------------
         # STEP 3 - Schema Generation
-        # -------------------------
 
         schema = generate_schema(
             design
         )
 
-        # -------------------------
         # STEP 4 - Refinement
-        # -------------------------
 
         schema = refine_schema(
             schema
         )
 
-        # -------------------------
+        
         # STEP 5 - Validation
-        # -------------------------
+        
 
         errors = validate_schema(
             schema
@@ -102,17 +95,14 @@ def generate(req: PromptRequest):
                 errors
             )
 
-        # -------------------------
         # STEP 6 - Runtime Execution
-        # -------------------------
+
 
         runtime = simulate_execution(
             schema
         )
 
-        # -------------------------
         # Runtime Health
-        # -------------------------
 
         if runtime["validation_score"] >= 90:
 
